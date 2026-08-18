@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Our Love Express ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#010302;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+button{
+    font-family:inherit;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    opacity:.13;
+    background-image:
+        linear-gradient(rgba(0,255,117,.08) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,255,117,.08) 1px,transparent 1px);
+    background-size:50px 50px;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    background:
+        radial-gradient(circle at 50% 10%,rgba(0,255,117,.12),transparent 35%),
+        radial-gradient(circle at 20% 80%,rgba(0,255,117,.05),transparent 30%);
+}
+
+.music{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:9999;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:1px solid #00ff75;
+    background:#020602;
+    color:#00ff75;
+    cursor:pointer;
+}
+
+/* INTRO */
+
+.intro{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
+}
+
+.intro-content{
+    width:min(850px,95vw);
+}
+
+.eyebrow{
+    color:#00ff75;
+    letter-spacing:5px;
+    font-size:10px;
+    margin-bottom:18px;
+}
+
+.intro h1{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:clamp(55px,12vw,110px);
+    line-height:.95;
+}
+
+.intro h1 span{
+    display:block;
+    color:#00ff75;
+    text-shadow:0 0 25px #00ff75;
+}
+
+.intro p{
+    max-width:650px;
+    margin:30px auto;
+    color:#9ca9a1;
+    line-height:2;
+}
+
+.btn{
+    border:1px solid #00ff75;
+    background:linear-gradient(135deg,rgba(0,255,117,.14),#020803);
+    color:white;
+    padding:15px 27px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+    letter-spacing:1px;
+    box-shadow:0 0 25px rgba(0,255,117,.15);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 35px rgba(0,255,117,.4);
+}
+
+/* JOURNEY */
+
+#journey{
+    display:none;
+    padding:70px 15px 100px;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:clamp(38px,8vw,70px);
+}
+
+.title span{
+    color:#00ff75;
+}
+
+/* TRAIN */
+
+.train-scene{
+    position:relative;
+    height:290px;
+    overflow:hidden;
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+    opacity:.2;
+    background-image:radial-gradient(circle,#fff 1px,transparent 1px);
+    background-size:80px 80px;
+}
+
+.track{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:43px;
+    height:8px;
+    background:#17221b;
+    border-top:2px solid #657168;
+}
+
+.track:after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:8px;
+    height:35px;
+    background:repeating-linear-gradient(
+        90deg,
+        transparent 0 25px,
+        #1b2b21 25px 30px,
+        transparent 30px 55px
+    );
+}
+
+.train{
+    position:absolute;
+    left:-500px;
+    bottom:65px;
+    width:430px;
+    height:120px;
+    display:flex;
+    align-items:flex-end;
+    z-index:10;
+    transition:left 3.5s cubic-bezier(.65,0,.2,1);
+}
+
+.train.d1{left:2%}
+.train.d2{left:25%}
+.train.d3{left:49%}
+.train.d4{left:72%}
+
+.engine{
+    position:relative;
+    width:140px;
+    height:85px;
+    background:linear-gradient(145deg,#122719,#030604);
+    border:2px solid #00ff75;
+    border-radius:12px 20px 6px 6px;
+    box-shadow:0 0 25px rgba(0,255,117,.25);
+}
+
+.engine:before{
+    content:"";
+    position:absolute;
+    width:45px;
+    height:22px;
+    top:-22px;
+    left:48px;
+    border:2px solid #00ff75;
+    border-bottom:0;
+    border-radius:8px 8px 0 0;
+}
+
+.light{
+    position:absolute;
+    width:18px;
+    height:18px;
+    right:-12px;
+    top:35px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 30px #00ff75;
+}
+
+.window{
+    position:absolute;
+    width:40px;
+    height:30px;
+    left:15px;
+    top:17px;
+    border:2px solid #00ff75;
+    background:#001408;
+}
+
+.coach{
+    position:relative;
+    width:120px;
+    height:75px;
+    margin-left:4px;
+    background:linear-gradient(145deg,#0c1c11,#030603);
+    border:2px solid #00ff75;
+}
+
+.wheel{
+    position:absolute;
+    width:24px;
+    height:24px;
+    bottom:-14px;
+    border-radius:50%;
+    background:#050605;
+    border:3px solid #69746d;
+}
+
+.w1{left:20px}
+.w2{right:20px}
+.w3{left:18px}
+.w4{right:18px}
+
+.smoke{
+    position:absolute;
+    left:45px;
+    top:-30px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:rgba(220,255,235,.12);
+    animation:smoke 2s infinite;
+}
+
+@keyframes smoke{
+    0%{
+        opacity:0;
+        transform:translateY(20px) scale(.5);
+    }
+    40%{opacity:.5}
+    100%{
+        opacity:0;
+        transform:translate(-20px,-50px) scale(2);
+    }
+}
+
+/* STATIONS */
+
+.stations{
+    width:min(1000px,95vw);
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    position:relative;
+}
+
+.stations:before{
+    content:"";
+    position:absolute;
+    left:5%;
+    right:5%;
+    top:15px;
+    height:2px;
+    background:linear-gradient(90deg,#00ff75,#16351f,#00ff75);
+}
+
+.station{
+    position:relative;
+    z-index:2;
+    width:22%;
+    text-align:center;
+}
+
+.dot{
+    width:30px;
+    height:30px;
+    margin:auto;
+    border-radius:50%;
+    background:#020502;
+    border:2px solid #304237;
+}
+
+.station.active .dot{
+    background:#00ff75;
+    border-color:#00ff75;
+    box-shadow:0 0 30px #00ff75;
+}
+
+.station-name{
+    margin-top:13px;
+    font-size:8px;
+    color:#68766d;
+}
+
+.station.active .station-name{
+    color:#00ff75;
+}
+
+/* STORIES */
+
+.story{
+    display:none;
+    width:min(850px,95vw);
+    margin:60px auto 0;
+    padding:35px 22px 40px;
+    text-align:center;
+    border-radius:30px;
+    background:linear-gradient(145deg,rgba(8,18,11,.97),rgba(2,5,3,.98));
+    border:1px solid rgba(0,255,117,.18);
+    box-shadow:0 30px 80px rgba(0,0,0,.65);
+}
+
+.story.show{
+    display:block;
+    animation:reveal .8s ease;
+}
+
+@keyframes reveal{
+    from{
+        opacity:0;
+        transform:translateY(40px) scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.story h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:clamp(30px,7vw,52px);
+    margin:15px 0;
+}
+
+.line{
+    width:80px;
+    height:2px;
+    background:#00ff75;
+    margin:20px auto;
+}
+
+.story p{
+    max-width:680px;
+    margin:20px auto;
+    color:#aeb9b1;
+    line-height:2;
+}
+
+.quote{
+    max-width:620px;
+    margin:25px auto;
+    padding:20px;
+    border-left:2px solid #00ff75;
+    border-right:2px solid #00ff75;
+    color:#d8ffe7;
+    font-family:Georgia,serif;
+    font-style:italic;
+    line-height:1.8;
+}
+
+.photo{
+    width:min(520px,100%);
+    height:330px;
+    margin:28px auto;
+    padding:6px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#00ff75,#062e17,#00ff75);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:17px;
+}
+
+/* MEMORY */
+
+#memory{
+    display:none;
+    width:min(900px,95vw);
+    margin:100px auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:clamp(35px,8vw,65px);
+}
+
+.section-title span{
+    color:#00ff75;
+}
+
+.box{
+    padding:25px 15px;
+    border-radius:28px;
+    background:#050905;
+    border:1px solid rgba(0,255,117,.2);
+    text-align:center;
+    margin-bottom:80px;
+}
+
+/* PUZZLE */
+
+.puzzle{
+    width:min(500px,90vw);
+    aspect-ratio:1;
+    margin:25px auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:4px;
+    padding:4px;
+}
+
+.piece{
+    background-size:300% 300%;
+    border:1px solid #071c0e;
+    cursor:grab;
+    touch-action:none;
+}
+
+.piece.correct{
+    box-shadow:inset 0 0 0 2px #00ff75;
+}
+
+.status{
+    color:#00ff75;
+    margin:20px;
+}
+
+/* SCRATCH */
+
+.scratch{
+    position:relative;
+    width:min(520px,92vw);
+    height:280px;
+    margin:30px auto;
+    overflow:hidden;
+    border-radius:25px;
+    background:#071a0c;
+    border:1px solid rgba(0,255,117,.4);
+}
+
+.secret{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:25px;
+}
+
+.secret h3{
+    color:#00ff75;
+    font-family:Georgia,serif;
+    font-size:28px;
+    margin:10px;
+}
+
+.secret p{
+    color:#b9c4bd;
+    line-height:1.8;
+}
+
+#scratch{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    touch-action:none;
+}
+
+/* =====================================================
+   PRINTABLE RELATIONSHIP RECEIPT
+===================================================== */
+
+.receipt-wrap{
+    margin-top:40px;
+}
+
+.receipt{
+    width:min(420px,94vw);
+    margin:30px auto;
+    padding:24px 20px 30px;
+    color:#111;
+    background:#fff;
+    font-family:"Courier New",monospace;
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.7),
+        0 0 30px rgba(0,255,117,.08);
+    position:relative;
+}
+
+.receipt:after{
+    content:"";
+    position:absolute;
+    bottom:-12px;
+    left:0;
+    right:0;
+    height:14px;
+    background:
+        linear-gradient(
+            135deg,
+            transparent 7px,
+            #fff 7px
+        ) 0 0/14px 14px repeat-x;
+}
+
+.receipt-head{
+    text-align:center;
+    border-bottom:2px dashed #222;
+    padding-bottom:16px;
+}
+
+.receipt-head h3{
+    font-size:25px;
+    letter-spacing:3px;
+}
+
+.receipt-head p{
+    font-size:11px;
+    margin-top:6px;
+}
+
+.receipt-logo{
+    font-size:38px;
+    margin-bottom:5px;
+}
+
+.receipt-meta{
+    display:flex;
+    justify-content:space-between;
+    font-size:10px;
+    margin:12px 0;
+}
+
+.receipt-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:8px 0;
+    border-bottom:1px dotted #555;
+    font-size:12px;
+}
+
+.receipt-row strong{
+    text-align:right;
+}
+
+.receipt-total{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+    padding-top:12px;
+    border-top:2px dashed #222;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.paid{
+    text-align:center;
+    margin:18px auto;
+    width:130px;
+    padding:7px;
+    border:2px solid #111;
+    font-weight:bold;
+    transform:rotate(-7deg);
+}
+
+.barcode{
+    margin:20px auto 10px;
+    width:200px;
+    height:48px;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #111 0 2px,
+            transparent 2px 5px,
+            #111 5px 6px,
+            transparent 6px 9px
+        );
+}
+
+.barcode-number{
+    text-align:center;
+    font-size:9px;
+    letter-spacing:3px;
+}
+
+.qr{
+    width:70px;
+    height:70px;
+    margin:18px auto;
+    background:
+        linear-gradient(90deg,#111 10%,transparent 10% 20%,#111 20% 30%,transparent 30% 40%,#111 40% 50%,transparent 50% 60%,#111 60% 70%,transparent 70% 80%,#111 80%),
+        linear-gradient(#111 10%,transparent 10% 20%,#111 20% 30%,transparent 30% 40%,#111 40% 50%,transparent 50% 60%,#111 60% 70%,transparent 70% 80%,#111 80%);
+    border:5px solid white;
+}
+
+.receipt-footer{
+    text-align:center;
+    font-size:10px;
+    line-height:1.8;
+    border-top:1px dashed #222;
+    padding-top:15px;
+}
+
+/* CERTIFICATE */
+
+.certificate{
+    width:min(800px,94vw);
+    margin:30px auto;
+    padding:10px;
+    background:linear-gradient(135deg,#00ff75,#163b22,#00ff75);
+}
+
+.certificate-inner{
+    padding:50px 20px;
+    text-align:center;
+    background:radial-gradient(circle,#0b1d10,#020402);
+}
+
+.certificate-small{
+    color:#00ff75;
+    letter-spacing:5px;
+    font-size:10px;
+}
+
+.certificate h2{
+    font-family:Georgia,serif;
+    font-size:clamp(35px,8vw,65px);
+    font-weight:400;
+    margin:20px;
+}
+
+.certificate h3{
+    font-size:24px;
+}
+
+.certificate p{
+    max-width:600px;
+    margin:20px auto;
+    color:#9faea5;
+    line-height:1.9;
+}
+
+.seal{
+    width:85px;
+    height:85px;
+    margin:25px auto;
+    border:2px solid #00ff75;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#00ff75;
+    font-size:30px;
+}
+
+/* CAKE */
+
+#cake{
+    display:none;
+    min-height:100vh;
+    text-align:center;
+    padding:80px 15px;
+}
+
+#cake h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:clamp(40px,8vw,70px);
+}
+
+#cake h2 span{
+    color:#00ff75;
+}
+
+.cake-scene{
+    position:relative;
+    width:min(600px,95vw);
+    height:430px;
+    margin:30px auto;
+    perspective:1200px;
+}
+
+.cake-shadow{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    width:380px;
+    height:45px;
+    border-radius:50%;
+    background:rgba(0,255,117,.12);
+    filter:blur(18px);
+}
+
+.cake{
+    position:absolute;
+    left:50%;
+    bottom:75px;
+    width:310px;
+    height:245px;
+    transform:translateX(-50%) rotateX(8deg) rotateY(-8deg);
+    transform-style:preserve-3d;
+}
+
+.cake-bottom{
+    position:absolute;
+    bottom:0;
+    width:310px;
+    height:115px;
+    border-radius:0 0 35px 35px;
+    background:linear-gradient(90deg,#071b0c,#123b1c,#061209);
+    border:2px solid #00ff75;
+}
+
+.cake-middle{
+    position:absolute;
+    bottom:82px;
+    left:15px;
+    width:280px;
+    height:100px;
+    border-radius:25px 25px 15px 15px;
+    background:linear-gradient(90deg,#0a2712,#1a5128,#092011);
+    border:2px solid #00ff75;
+}
+
+.cake-top{
+    position:absolute;
+    left:20px;
+    bottom:150px;
+    width:270px;
+    height:85px;
+    border-radius:50%;
+    background:radial-gradient(ellipse,#286c38,#0c2c15 55%,#041007);
+    border:2px solid #00ff75;
+    z-index:5;
+}
+
+.candle{
+    position:absolute;
+    bottom:42px;
+    width:14px;
+    height:55px;
+    border-radius:4px;
+    background:repeating-linear-gradient(45deg,#eafff0 0 7px,#00a84f 7px 14px);
+    z-index:10;
+}
+
+.c1{left:72px}
+.c2{left:128px}
+.c3{right:72px}
+
+.flame{
+    position:absolute;
+    width:18px;
+    height:27px;
+    left:50%;
+    top:-27px;
+    transform:translateX(-50%) rotate(-45deg);
+    border-radius:50% 50% 50% 0;
+    background:#fff;
+    box-shadow:0 0 10px #00ff75,0 0 30px #00ff75;
+    animation:flame .8s infinite alternate;
+}
+
+@keyframes flame{
+    from{transform:translateX(-50%) rotate(-48deg) scale(.8)}
+    to{transform:translateX(-50%) rotate(-38deg) scale(1.15)}
+}
+
+.knife{
+    position:absolute;
+    right:20px;
+    top:70px;
+    width:150px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    cursor:grab;
+    transform:rotate(25deg);
+    z-index:30;
+    touch-action:none;
+}
+
+.blade{
+    width:105px;
+    height:18px;
+    background:linear-gradient(#fff,#9da8a1,#fff);
+    clip-path:polygon(0 0,100% 0,86% 100%,0 100%);
+}
+
+.handle{
+    width:48px;
+    height:25px;
+    border-radius:5px 12px 12px 5px;
+    background:linear-gradient(90deg,#07140b,#00a84f);
+    border:1px solid #00ff75;
+}
+
+.slice{
+    position:absolute;
+    left:calc(50% + 80px);
+    bottom:75px;
+    width:100px;
+    height:115px;
+    opacity:0;
+    transform:translateX(0);
+    transition:1.5s;
+    z-index:20;
+}
+
+.slice.cut{
+    opacity:1;
+    transform:translateX(110px) translateY(20px) rotateZ(3deg);
+}
+
+.slice-body{
+    position:absolute;
+    bottom:0;
+    width:100px;
+    height:80px;
+    background:linear-gradient(90deg,#174f27,#092512);
+    border:2px solid #00ff75;
+    clip-path:polygon(0 0,100% 0,82% 100%,15% 100%);
+}
+
+.slice-top{
+    position:absolute;
+    top:0;
+    width:100px;
+    height:35px;
+    border-radius:50%;
+    background:#296b38;
+    border:2px solid #00ff75;
+}
+
+.success{
+    display:none;
+    max-width:600px;
+    margin:30px auto;
+    padding:30px 20px;
+    border:1px solid rgba(0,255,117,.25);
+    border-radius:25px;
+}
+
+.success.show{
+    display:block;
+}
+
+.success h3{
+    color:#00ff75;
+    font-family:Georgia,serif;
+    font-size:35px;
+    margin:15px;
+}
+
+/* FINAL */
+
+#final{
+    display:none;
+    min-height:100vh;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 20px;
+    background:radial-gradient(circle,rgba(0,255,117,.1),transparent 35%);
+}
+
+.final-content{
+    width:min(850px,95vw);
+}
+
+#final h1{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:clamp(45px,10vw,90px);
+}
+
+#final h1 span{
+    display:block;
+    color:#00ff75;
+    text-shadow:0 0 25px #00ff75;
+}
+
+.final-message{
+    max-width:700px;
+    margin:30px auto;
+    color:#aeb9b1;
+    line-height:2;
+}
+
+.final-heart{
+    font-size:75px;
+    margin:35px;
+    animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.15)}
+}
+
+.signature{
+    font-family:Georgia,serif;
+    font-size:22px;
+    line-height:1.8;
+}
+
+.green{
+    color:#00ff75;
+}
+
+/* PRINT */
+
+@media print{
+
+    body{
+        background:white!important;
+        color:#111!important;
+    }
+
+    body *{
+        visibility:hidden!important;
+    }
+
+    #printReceipt,
+    #printReceipt *{
+        visibility:visible!important;
+    }
+
+    #printReceipt{
+        position:absolute!important;
+        left:50%;
+        top:0;
+        transform:translateX(-50%);
+        width:80mm!important;
+        box-shadow:none!important;
+        margin:0!important;
+    }
+
+    .no-print{
+        display:none!important;
+    }
+
+    @page{
+        size:80mm auto;
+        margin:0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .train{
+        transform:scale(.62);
+        transform-origin:left bottom;
+    }
+
+    .station-name{
+        font-size:6px;
+    }
+
+    .photo{
+        height:min(330px,75vw);
+    }
+
+    .cake{
+        transform:translateX(-50%) scale(.75) rotateX(8deg) rotateY(-8deg);
+    }
+
+    .knife{
+        right:-25px;
+        transform:scale(.75) rotate(25deg);
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid"></div>
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" onclick="toggleMusic()" id="musicBtn">
+    🔇
+</button>
+
+
+<!-- INTRO -->
+
+<section class="intro" id="intro">
+
+<div class="intro-content">
+
+<div class="eyebrow">
+A JOURNEY WRITTEN BY DESTINY
+</div>
+
+<h1>
+Our
+<span>Love Story</span>
+</h1>
+
+<p>
+Some stories are written with words.
+<br><br>
+Ours was written with moments,
+memories, laughter and two hearts
+that somehow found each other.
+</p>
+
+<button class="btn" onclick="startJourney()">
+START OUR LOVE TRAIN 🚂
+</button>
+
+</div>
+</section>
+
+
+<!-- JOURNEY -->
+
+<section id="journey">
+
+<div class="title">
+<div class="eyebrow">LOVE EXPRESS</div>
+<h2>
+The Train To <span>Forever</span>
+</h2>
+</div>
+
+
+<div class="train-scene">
+
+<div class="stars"></div>
+
+<div class="train" id="train">
+
+<div class="engine">
+<div class="window"></div>
+<div class="light"></div>
+<div class="smoke"></div>
+<div class="wheel w1"></div>
+<div class="wheel w2"></div>
+</div>
+
+<div class="coach">
+<div class="wheel w3"></div>
+<div class="wheel w4"></div>
+</div>
+
+</div>
+
+<div class="track"></div>
+
+</div>
+
+
+<div class="stations">
+
+<div class="station" id="s1">
+<div class="dot"></div>
+<div class="station-name">FIRST MEET</div>
+</div>
+
+<div class="station" id="s2">
+<div class="dot"></div>
+<div class="station-name">FIRST MEMORY</div>
+</div>
+
+<div class="station" id="s3">
+<div class="dot"></div>
+<div class="station-name">FALLING IN LOVE</div>
+</div>
+
+<div class="station" id="s4">
+<div class="dot"></div>
+<div class="station-name">FOREVER</div>
+</div>
+
+</div>
+
+
+<!-- STORY 1 -->
+
+<div class="story" id="story1">
+
+<div class="eyebrow">DESTINY 01</div>
+
+<h2>The Day We Met</h2>
+
+<div class="line"></div>
+
+<div class="photo">
+<img src="photos/photo1.jpg">
+</div>
+
+<p>
+Maybe that first moment looked ordinary
+to everyone else...
+<br><br>
+But somewhere between that first meeting
+and that first smile,
+destiny quietly started writing our story.
+</p>
+
+<div class="quote">
+"I didn't know it then,
+but meeting you was the beginning
+of my favorite story."
+</div>
+
+<button class="btn" onclick="next(2)">
+NEXT DESTINY 🚂
+</button>
+
+</div>
+
+
+<!-- STORY 2 -->
+
+<div class="story" id="story2">
+
+<div class="eyebrow">DESTINY 02</div>
+
+<h2>Our First Memories</h2>
+
+<div class="line"></div>
+
+<div class="photo">
+<img src="photos/photo2.jpg">
+</div>
+
+<p>
+Slowly, moments became memories.
+<br><br>
+Conversations became smiles,
+smiles became happiness,
+and somehow your presence
+started feeling like home.
+</p>
+
+<div class="quote">
+"The little moments with you became
+the big memories I never want to forget."
+</div>
+
+<button class="btn" onclick="next(3)">
+NEXT DESTINY 🚂
+</button>
+
+</div>
+
+
+<!-- STORY 3 -->
+
+<div class="story" id="story3">
+
+<div class="eyebrow">DESTINY 03</div>
+
+<h2>When I Fell For You</h2>
+
+<div class="line"></div>
+
+<div class="photo">
+<img src="photos/photo3.jpg">
+</div>
+
+<p>
+I didn't fall in love in one single moment.
+<br><br>
+It happened slowly...
+through your smile,
+your personality,
+your little ways,
+and every moment we shared.
+</p>
+
+<div class="quote">
+"Somewhere along the way,
+you stopped being just someone I loved
+and became someone I couldn't imagine
+life without."
+</div>
+
+<button class="btn" onclick="next(4)">
+LAST DESTINY 🚂
+</button>
+
+</div>
+
+
+<!-- STORY 4 -->
+
+<div class="story" id="story4">
+
+<div class="eyebrow">DESTINY 04</div>
+
+<h2>Our Forever</h2>
+
+<div class="line"></div>
+
+<div class="photo">
+<img src="photos/photo4.jpg">
+</div>
+
+<p>
+We have already created beautiful memories...
+<br><br>
+But I don't want our story to end here.
+<br><br>
+I want more birthdays,
+more laughs,
+more photographs,
+more adventures...
+and more us.
+</p>
+
+<div class="quote">
+"If I could choose one journey
+to take again and again,
+I would choose ours."
+</div>
+
+<button class="btn" onclick="openMemory()">
+CONTINUE OUR STORY ❤️
+</button>
+
+</div>
+
+
+<!-- MEMORY -->
+
+<div id="memory">
+
+<div class="section-title">
+<div class="eyebrow">MEMORIES OF US</div>
+<h2>One More <span>Secret</span></h2>
+</div>
+
+
+<!-- PUZZLE -->
+
+<div class="box">
+
+<h2>🧩 Our Love Puzzle</h2>
+
+<p style="color:#9ca9a1;margin:15px">
+Drag/touch the pieces and complete our memory.
+</p>
+
+<div class="puzzle" id="puzzle"></div>
+
+<div class="status" id="status">
+0 / 9 pieces correct
+</div>
+
+<button
+class="btn"
+id="puzzleBtn"
+style="display:none"
+onclick="showScratch()">
+
+UNLOCK SECRET 🎫
+
+</button>
+
+</div>
+
+
+<!-- SCRATCH -->
+
+<div id="scratchSection" style="display:none">
+
+<div class="section-title">
+<div class="eyebrow">SECRET MESSAGE</div>
+<h2>Scratch My <span>Heart</span></h2>
+</div>
+
+<div class="scratch">
+
+<div class="secret">
+
+<div style="font-size:45px">
+💚
+</div>
+
+<h3>
+YOU ARE MY FAVORITE PERSON
+</h3>
+
+<p>
+I would still choose you.
+Again and again.
+</p>
+
+</div>
+
+<canvas id="scratch"></canvas>
+
+</div>
+
+<p style="text-align:center;color:#7f8d84">
+✨ Scratch with your finger or mouse
+</p>
+
+<div style="text-align:center;margin-top:25px">
+
+<button class="btn" onclick="showReceipt()">
+REVEAL OUR RECEIPT 🧾
+</button>
+
+</div>
+
+</div>
+
+
+<!-- RECEIPT -->
+
+<div id="receiptSection" class="receipt-wrap" style="display:none">
+
+<div class="section-title">
+
+<div class="eyebrow">
+OFFICIAL LOVE RECORD
+</div>
+
+<h2>
+Relationship <span>Receipt</span>
+</h2>
+
+</div>
+
+
+<div class="receipt" id="printReceipt">
+
+<div class="receipt-head">
+
+<div class="receipt-logo">
+❤️
+</div>
+
+<h3>
+LOVE EXPRESS
+</h3>
+
+<p>
+RELATIONSHIP RECEIPT
+</p>
+
+</div>
+
+
+<div class="receipt-meta">
+
+<span>
+DATE: <span id="receiptDate"></span>
+</span>
+
+<span>
+#LOVE-∞
+</span>
+
+</div>
+
+
+<div class="receipt-row">
+<span>PASSENGER</span>
+<strong>MY LOVE ❤️</strong>
+</div>
+
+<div class="receipt-row">
+<span>JOURNEY</span>
+<strong>TWO HEARTS</strong>
+</div>
+
+<div class="receipt-row">
+<span>FIRST MEET</span>
+<strong>DESTINY</strong>
+</div>
+
+<div class="receipt-row">
+<span>FIRST MEMORY</span>
+<strong>FIRST KISS 💋</strong>
+</div>
+
+<div class="receipt-row">
+<span>SMILES</span>
+<strong>UNLIMITED</strong>
+</div>
+
+<div class="receipt-row">
+<span>MEMORIES</span>
+<strong>PRICELESS</strong>
+</div>
+
+<div class="receipt-row">
+<span>LOVE</span>
+<strong>100%</strong>
+</div>
+
+<div class="receipt-row">
+<span>EXPIRY</span>
+<strong>NEVER</strong>
+</div>
+
+
+<div class="receipt-total">
+
+<span>TOTAL LOVE</span>
+
+<span>∞</span>
+
+</div>
+
+
+<div class="paid">
+PAID IN LOVE ❤️
+</div>
+
+
+<div class="barcode"></div>
+
+<div class="barcode-number">
+LOVE-FOREVER-0001
+</div>
+
+
+<div class="qr"></div>
+
+
+<div class="receipt-footer">
+
+THANK YOU FOR CHOOSING
+LOVE EXPRESS.
+
+<br>
+
+THIS RECEIPT IS NON-REFUNDABLE.
+
+<br>
+
+LOVE IS VALID FOREVER. ♾️
+
+</div>
+
+</div>
+
+
+<div class="no-print"
+style="text-align:center;margin:25px">
+
+<button class="btn" onclick="printReceipt()">
+🖨️ PRINT RELATIONSHIP RECEIPT
+</button>
+
+<button
+class="btn"
+style="margin-left:8px"
+onclick="showCertificate()">
+
+VERIFY OUR LOVE 📜
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CERTIFICATE -->
+
+<div id="certificateSection"
+style="display:none;margin-top:90px">
+
+<div class="section-title">
+
+<div class="eyebrow">
+OFFICIALLY CERTIFIED
+</div>
+
+<h2>
+Certificate Of <span>Love</span>
+</h2>
+
+</div>
+
+
+<div class="certificate">
+
+<div class="certificate-inner">
+
+<div class="certificate-small">
+LOVE EXPRESS • EST. FOREVER
+</div>
+
+<h2>
+Certificate
+</h2>
+
+<h3>
+OF ETERNAL LOVE ❤️
+</h3>
+
+<p>
+This certificate officially recognizes
+the beautiful bond between two hearts
+who found each other through destiny.
+</p>
+
+<div class="seal">
+♥
+</div>
+
+<p>
+This love is certified to last through
+every season, every distance,
+every smile and every challenge.
+<br><br>
+<strong>FOREVER.</strong>
+</p>
+
+</div>
+
+</div>
+
+
+<div style="text-align:center">
+
+<button class="btn" onclick="showCake()">
+OPEN THE BIRTHDAY CAKE 🎂
+</button>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CAKE -->
+
+<section id="cake">
+
+<div class="eyebrow">
+THE FINAL CELEBRATION
+</div>
+
+<h2>
+Make A Wish,
+<br>
+<span>My Love</span> 🎂
+</h2>
+
+<p style="color:#89958d;margin:20px">
+Drag the knife through the cake
+or press the button.
+</p>
+
+
+<div class="cake-scene">
+
+<div class="cake-shadow"></div>
+
+
+<div class="cake" id="cakeObject">
+
+<div class="cake-top">
+
+<div class="candle c1">
+<div class="flame"></div>
+</div>
+
+<div class="candle c2">
+<div class="flame"></div>
+</div>
+
+<div class="candle c3">
+<div class="flame"></div>
+</div>
+
+</div>
+
+<div class="cake-middle"></div>
+
+<div class="cake-bottom"></div>
+
+</div>
+
+
+<div class="knife" id="knife">
+
+<div class="blade"></div>
+
+<div class="handle"></div>
+
+</div>
+
+
+<div class="slice" id="slice">
+
+<div class="slice-top"></div>
+
+<div class="slice-body"></div>
+
+</div>
+
+</div>
+
+
+<button class="btn" id="cutBtn" onclick="cutCake()">
+🔪 CUT THE CAKE
+</button>
+
+
+<div class="success" id="cakeSuccess">
+
+<div style="font-size:55px">
+❤️
+</div>
+
+<h3>
+The Cake Is Cut!
+</h3>
+
+<p style="color:#aab6ae;line-height:1.9">
+And just like this cake,
+I want to share every sweet moment
+of life with you.
+</p>
+
+<button class="btn" onclick="showFinal()">
+OPEN MY LAST MESSAGE 💚
+</button>
+
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section id="final">
+
+<div class="final-content">
+
+<div style="font-size:55px">
+✨
+</div>
+
+<div class="eyebrow">
+ONE LAST MESSAGE FROM MY HEART
+</div>
+
+<h1>
+Happy Birthday,
+<span>My Love</span>
+</h1>
+
+<div style="
+width:100px;
+height:2px;
+background:#00ff75;
+margin:30px auto">
+</div>
+
+<p class="final-message">
+
+Today isn't just another birthday.
+
+<br><br>
+
+It's the day the world was gifted
+the person who became one of the
+most beautiful parts of my life.
+
+<br><br>
+
+Through every laugh,
+every memory,
+every little fight,
+every beautiful moment...
+
+<br><br>
+
+<strong style="color:white;font-size:20px">
+I would still choose you.
+</strong>
+
+<br><br>
+
+<span class="green">
+I want more memories with you.
+More journeys.
+More birthdays.
+More us.
+</span>
+
+</p>
+
+<div class="final-heart">
+❤️
+</div>
+
+<h2 style="
+font-family:Georgia,serif;
+font-weight:400;
+font-size:clamp(25px,6vw,45px)">
+Happy Birthday,
+My Favorite Person.
+</h2>
+
+<p style="
+max-width:600px;
+margin:25px auto;
+color:#7f8d84;
+line-height:1.9">
+
+May your smile never fade,
+may your dreams come true,
+and may this new year of your life
+be as beautiful as your heart.
+
+<br><br>
+
+<span class="green">
+With all my love, always. 💚
+</span>
+
+</p>
+
+<div class="signature">
+
+Forever Yours ♾️
+
+<br>
+
+<span style="color:#00ff75;font-size:15px">
+— With Love ❤️
+</span>
+
+</div>
+
+</div>
+</section>
+
+
+<script>
+
+/* MUSIC */
+
+const music=document.getElementById("music");
+const musicBtn=document.getElementById("musicBtn");
+
+function startMusic(){
+
+    music.volume=.55;
+
+    music.play().then(()=>{
+        musicBtn.innerHTML="🔊";
+    }).catch(()=>{});
+
+}
+
+function toggleMusic(){
+
+    if(music.paused){
+        music.play();
+        musicBtn.innerHTML="🔊";
+    }else{
+        music.pause();
+        musicBtn.innerHTML="🔇";
+    }
+
+}
+
+
+/* TRAIN */
+
+function startJourney(){
+
+    document.getElementById("intro").style.display="none";
+    document.getElementById("journey").style.display="block";
+
+    startMusic();
+
+    setTimeout(()=>{
+        moveTrain(1);
+    },700);
+
+}
+
+function moveTrain(n){
+
+    const train=document.getElementById("train");
+
+    document.querySelectorAll(".story")
+    .forEach(x=>x.classList.remove("show"));
+
+    train.className="train d"+n;
+
+    setTimeout(()=>{
+
+        document.querySelectorAll(".station")
+        .forEach(x=>x.classList.remove("active"));
+
+        document.getElementById("s"+n)
+        .classList.add("active");
+
+        setTimeout(()=>{
+
+            document.getElementById("story"+n)
+            .classList.add("show");
+
+            document.getElementById("story"+n)
+            .scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+
+        },300);
+
+    },3600);
+
+}
+
+function next(n){
+    moveTrain(n);
+}
+
+
+/* MEMORY */
+
+function openMemory(){
+
+    document.getElementById("memory").style.display="block";
+
+    document.getElementById("memory")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+    createPuzzle();
+
+}
+
+
+/* PUZZLE */
+
+let puzzleCreated=false;
+let dragged=null;
+
+function createPuzzle(){
+
+    if(puzzleCreated)return;
+
+    puzzleCreated=true;
+
+    const grid=document.getElementById("puzzle");
+
+    let arr=[0,1,2,3,4,5,6,7,8];
+
+    do{
+        arr.sort(()=>Math.random()-.5);
+    }while(arr.every((v,i)=>v===i));
+
+    arr.forEach((pos,index)=>{
+
+        const piece=document.createElement("div");
+
+        piece.className="piece";
+
+        piece.dataset.pos=pos;
+
+        const row=Math.floor(pos/3);
+        const col=pos%3;
+
+        piece.style.backgroundImage=
+            "url('photos/photo4.jpg')";
+
+        piece.style.backgroundPosition=
+            `${col*50}% ${row*50}%`;
+
+        piece.draggable=true;
+
+        piece.addEventListener("dragstart",()=>{
+            dragged=piece;
+        });
+
+        piece.addEventListener("dragover",e=>{
+            e.preventDefault();
+        });
+
+        piece.addEventListener("drop",e=>{
+
+            e.preventDefault();
+
+            if(dragged && dragged!==piece){
+                swap(dragged,piece);
+            }
+
+        });
+
+        piece.addEventListener("touchstart",()=>{
+            dragged=piece;
+        },{passive:true});
+
+        piece.addEventListener("touchend",e=>{
+
+            const t=e.changedTouches[0];
+
+            const target=document.elementFromPoint(
+                t.clientX,
+                t.clientY
+            );
+
+            const other=target?.closest(".piece");
+
+            if(other && other!==piece){
+                swap(piece,other);
+            }
+
+        });
+
+        grid.appendChild(piece);
+
+    });
+
+    checkPuzzle();
+
+}
+
+function swap(a,b){
+
+    const parent=a.parentNode;
+
+    const nextA=a.nextSibling;
+    const nextB=b.nextSibling;
+
+    if(nextA===b){
+
+        parent.insertBefore(b,a);
+
+    }else{
+
+        parent.insertBefore(a,nextB);
+        parent.insertBefore(b,nextA);
+
+    }
+
+    checkPuzzle();
+
+}
+
+function checkPuzzle(){
+
+    const pieces=[
+        ...document.querySelectorAll(".piece")
+    ];
+
+    let correct=0;
+
+    pieces.forEach((p,i)=>{
+
+        const yes=
+            Number(p.dataset.pos)===i;
+
+        p.classList.toggle("correct",yes);
+
+        if(yes)correct++;
+
+    });
+
+    document.getElementById("status")
+    .innerText=
+        `${correct} / 9 pieces correct`;
+
+    if(correct===9){
+
+        document.getElementById("status")
+        .innerText=
+            "❤️ Puzzle Complete!";
+
+        document.getElementById("puzzleBtn")
+        .style.display="inline-block";
+
+    }
+
+}
+
+
+/* SCRATCH */
+
+let scratchStarted=false;
+
+function showScratch(){
+
+    document.getElementById("scratchSection")
+    .style.display="block";
+
+    document.getElementById("scratchSection")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+    if(scratchStarted)return;
+
+    scratchStarted=true;
+
+    const canvas=document.getElementById("scratch");
+    const ctx=canvas.getContext("2d");
+
+    function setup(){
+
+        const r=canvas.getBoundingClientRect();
+
+        canvas.width=r.width*devicePixelRatio;
+        canvas.height=r.height*devicePixelRatio;
+
+        ctx.scale(devicePixelRatio,devicePixelRatio);
+
+        ctx.fillStyle="#566158";
+        ctx.fillRect(0,0,r.width,r.height);
+
+        ctx.fillStyle="#d9e1dc";
+        ctx.font="bold 18px Arial";
+        ctx.textAlign="center";
+
+        ctx.fillText(
+            "SCRATCH HERE ✨",
+            r.width/2,
+            r.height/2
+        );
+
+    }
+
+    setup();
+
+    let down=false;
+
+    function scratch(e){
+
+        if(!down)return;
+
+        e.preventDefault();
+
+        const r=canvas.getBoundingClientRect();
+
+        const p=e.touches?e.touches[0]:e;
+
+        const x=p.clientX-r.left;
+        const y=p.clientY-r.top;
+
+        ctx.globalCompositeOperation="destination-out";
+
+        ctx.beginPath();
+
+        ctx.arc(x,y,25,0,Math.PI*2);
+
+        ctx.fill();
+
+    }
+
+    canvas.addEventListener("mousedown",()=>down=true);
+    canvas.addEventListener("mouseup",()=>down=false);
+    canvas.addEventListener("mousemove",scratch);
+
+    canvas.addEventListener("touchstart",()=>{
+        down=true;
+    },{passive:false});
+
+    canvas.addEventListener("touchend",()=>{
+        down=false;
+    });
+
+    canvas.addEventListener("touchmove",scratch,{
+        passive:false
+    });
+
+}
+
+
+/* RECEIPT */
+
+function showReceipt(){
+
+    document.getElementById("receiptSection")
+    .style.display="block";
+
+    const date=new Date();
+
+    document.getElementById("receiptDate")
+    .innerText=
+        date.toLocaleDateString();
+
+    document.getElementById("receiptSection")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+function printReceipt(){
+
+    window.print();
+
+}
+
+
+/* CERTIFICATE */
+
+function showCertificate(){
+
+    document.getElementById("certificateSection")
+    .style.display="block";
+
+    document.getElementById("certificateSection")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* CAKE */
+
+function showCake(){
+
+    document.getElementById("cake")
+    .style.display="block";
+
+    document.getElementById("cake")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* CAKE CUT */
+
+let cut=false;
+
+function cutCake(){
+
+    if(cut)return;
+
+    cut=true;
+
+    document.getElementById("knife")
+    .style.transform=
+        "translate(-180px,150px) rotate(80deg)";
+
+    setTimeout(()=>{
+
+        document.getElementById("slice")
+        .classList.add("cut");
+
+    },800);
+
+    setTimeout(()=>{
+
+        document.querySelectorAll(".flame")
+        .forEach(f=>{
+            f.style.opacity="0";
+        });
+
+    },1000);
+
+    setTimeout(()=>{
+
+        document.getElementById("cakeSuccess")
+        .classList.add("show");
+
+    },1500);
+
+}
+
+
+/* KNIFE TOUCH/DRAG */
+
+const knife=document.getElementById("knife");
+
+let dragging=false;
+let sx=0;
+let sy=0;
+
+function knifeStart(e){
+
+    if(cut)return;
+
+    dragging=true;
+
+    const p=e.touches?e.touches[0]:e;
+
+    sx=p.clientX;
+    sy=p.clientY;
+
+}
+
+function knifeMove(e){
+
+    if(!dragging)return;
+
+    e.preventDefault();
+
+    const p=e.touches?e.touches[0]:e;
+
+    const dx=p.clientX-sx;
+    const dy=p.clientY-sy;
+
+    knife.style.transform=
+        `translate(${dx}px,${dy}px) rotate(25deg)`;
+
+    if(Math.abs(dx)>100 || Math.abs(dy)>100){
+
+        dragging=false;
+
+        cutCake();
+
+    }
+
+}
+
+knife.addEventListener("mousedown",knifeStart);
+
+document.addEventListener("mousemove",knifeMove);
+
+document.addEventListener("mouseup",()=>{
+    dragging=false;
+});
+
+knife.addEventListener("touchstart",knifeStart,{
+    passive:false
+});
+
+document.addEventListener("touchmove",knifeMove,{
+    passive:false
+});
+
+document.addEventListener("touchend",()=>{
+    dragging=false;
+});
+
+
+/* FINAL */
+
+function showFinal(){
+
+    document.getElementById("final")
+    .style.display="flex";
+
+    document.getElementById("final")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+  </html>
